@@ -1,5 +1,4 @@
 class PostsController < ApplicationController
-  before_action :authenticate_user, only: [:create, :update, :destroy]
   before_action :set_post, only: [:show, :update, :destroy]
   before_action :authorize_user, only: [:update, :destroy]
 
@@ -46,7 +45,7 @@ class PostsController < ApplicationController
   end
   protected
   def error_forbidden
-render status: :forbidden, json {errors: ['yor are not authorized to perform that action']}
+render status: :forbidden, json: {errors: ['yor are not authorized to perform that action']}
   end
   def success_post_index
 render status: :ok, template: 'posts/index.json.jbuilder'
