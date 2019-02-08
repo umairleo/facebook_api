@@ -20,6 +20,8 @@ gem 'bcrypt', '3.1.12'
 # for token auth
 gem 'devise_token_auth', '1.0.0'
 
+gem 'has_friendship', '1.1.6'
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', '10.0.2', platforms: [:mri, :mingw, :x64_mingw]
