@@ -8,4 +8,9 @@ class Post < ApplicationRecord
   def likes?
     likes.count
   end
+  def  self.get_posts(user)
+    user_ids = user.friends.pluck(:id)
+    user_ids.push(user.id)
+    return Post.where(user_id: user_ids).order(id: :desc)  
+  end
 end

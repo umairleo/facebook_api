@@ -1,11 +1,12 @@
 class PostsController < ApplicationController
+  before_action :authenticate_user!
   before_action :set_post, only: [:show, :update, :destroy]
   before_action :authorize_user, only: [:update, :destroy]
 
   # GET /posts
   # GET /posts.json
   def index
-    @posts = Post.all.order(id: :desc)
+@posts = Post.get_posts(current_user)
     success_post_index
   end
 

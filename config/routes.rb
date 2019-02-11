@@ -11,5 +11,17 @@ Rails.application.routes.draw do
     collection do
       get :pending_friends
     end
+    member do
+      put :accept_request
+    end
+    member do
+     delete :decline_request
+    end
+    member do
+    delete :remove_friend 
+    end
+    collection do
+   get :all_friends
+    end
   end
 end
